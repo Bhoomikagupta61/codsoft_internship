@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travelio Premium</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #f9fbfd 0%, #e0e7ef 100%);
+      color: #23233b;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26,26,60,0.92);
+      color: #fff;
+      padding: 1rem 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #00c9a7, #0077b6, #6a82fb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav.main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.2rem;
+    }
+
+    nav.main-nav a {
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.08rem;
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    nav.main-nav a:hover,
+    nav.main-nav a.active {
+      color: #00f5d4;
+      border-bottom: 2px solid #00f5d4;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      position: relative;
+      background: linear-gradient(120deg, #e0f7fa 60%, #e3f2fd 100%);
+      text-align: center;
+      padding: 7rem 1rem 8rem 1rem;
+      overflow: hidden;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      opacity: 0.18;
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 3.2rem;
+      color: #23233b;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    .hero p {
+      font-size: 1.35rem;
+      color: #444;
+      margin-bottom: 2.2rem;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #00c9a7, #6a82fb);
+      color: white;
+      padding: 1rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,201,167,0.08);
+      transition: all 0.4s cubic-bezier(.4,2,.6,1);
+      letter-spacing: 1px;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #0077b6, #00c9a7);
+      transform: scale(1.07) translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,201,167,0.13);
+    }
+
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      align-items: stretch;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .icon-box {
+      font-size: 3.2rem;
+      color: #00b4d8;
+      margin-bottom: 1.2rem;
+      filter: drop-shadow(0 2px 8px #00b4d833);
+    }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    .destinations h2,
+    .about h2,
+    .contact h2,
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 2.2rem;
+      color: #23233b;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .destinations .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.75);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 2.2rem 1.2rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,180,216,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(120deg, #00c9a71a 0%, #6a82fb1a 100%);
+      z-index: 0;
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .card .icon-box {
+      font-size: 2.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card h4 {
+      margin-top: 1.1rem;
+      font-size: 1.18rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 16px 32px rgba(0,180,216,0.13);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.85);
+      padding: 2rem 1.5rem;
+      border-left: 5px solid #00b4d8;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(6px);
+      transition: box-shadow 0.3s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 8px 32px rgba(0,180,216,0.13);
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      font-size: 1.08rem;
+      color: #23233b;
+    }
+
+    .testimonial-card strong {
+      display: block;
+      font-size: 1rem;
+      color: #0077b6;
+      font-weight: 600;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 600px;
+      margin: 2.5rem auto 0;
+      background: rgba(255,255,255,0.7);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 2.2rem 2rem;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,180,216,0.08);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 1rem;
+      border: 1.5px solid #b2e0f7;
+      border-radius: 10px;
+      font-size: 1.08rem;
+      outline: none;
+      transition: border 0.3s, box-shadow 0.3s;
+      background: rgba(255,255,255,0.85);
+      font-family: inherit;
+      box-shadow: 0 2px 8px rgba(0,180,216,0.03);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #00b4d8;
+      box-shadow: 0 4px 16px rgba(0,180,216,0.10);
+    }
+
+    .contact-form button {
+      background: linear-gradient(90deg, #00c9a7, #6a82fb);
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(.4,2,.6,1);
+      box-shadow: 0 4px 16px rgba(0,201,167,0.08);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      justify-content: center;
+    }
+
+    .contact-form button:hover {
+      background: linear-gradient(90deg, #0077b6, #00c9a7);
+      transform: scale(1.07) translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,201,167,0.13);
+    }
+
+    footer.site-footer {
+      background: #1a1a3c;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 1rem;
+      margin-top: 4rem;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.07);
+    }
+
+    @media (max-width: 900px) {
+      .columns {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .container {
+        padding: 1.2rem 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 4rem 0.5rem 5rem 0.5rem;
+      }
+      .contact-form {
+        padding: 1.2rem 0.5rem;
+      }
+      .card {
+        padding: 1.2rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">✨ Travelio</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="container">
+      <h2>Experience Luxury Travel</h2>
+      <p>Curated global adventures tailored just for you.</p>
+      <a href="#destinations" class="btn-primary">Explore Destinations</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="icon-box">🧭</div>
+          <h3>Personalized Planning</h3>
+          <p>Our experts tailor each trip to match your taste, style, and pace, making every journey memorable.</p>
+        </div>
+        <div class="column">
+          <div class="icon-box">🎯</div>
+          <h3>Trusted Service</h3>
+          <p>Over 20 years of delivering premium travel experiences with a global network of partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="destinations" id="destinations">
+    <div class="container">
+      <h2>Top Destinations</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="icon-box">🗼</div>
+          <h4>Paris, France</h4>
+        </div>
+        <div class="card">
+          <div class="icon-box">🏝️</div>
+          <h4>Bali, Indonesia</h4>
+        </div>
+        <div class="card">
+          <div class="icon-box">🗽</div>
+          <h4>New York, USA</h4>
+        </div>
+        <div class="card">
+          <div class="icon-box">🗾</div>
+          <h4>Tokyo, Japan</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="columns">
+        <div class="column testimonial-card">
+          <p>"Luxury redefined. We didn’t have to lift a finger – Travelio took care of everything!"</p>
+          <strong>- Olivia P.</strong>
+        </div>
+        <div class="column testimonial-card">
+          <p>"Perfectly curated experiences. The service, the planning, the vibe – impeccable."</p>
+          <strong>- James W.</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Travelio. Luxury Travel, Redefined.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Highlight nav link on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".main-nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 80;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
