@@ -394,7 +394,17 @@
     <div class="projects-grid">
       <!-- Project Card -->
       <div class="project-card" style="background:linear-gradient(120deg,#e0e7ff 60%,#f3e8ff 100%);">
-        <img src="portfolio.webp" alt="Project 1">
+        <div style="width:100%;height:14rem;display:flex;align-items:center;justify-content:center;">
+          <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="110" height="110" rx="24" fill="#F3E8FF" />
+            <g>
+              <rect x="25" y="35" width="60" height="40" rx="8" fill="#4F46E5" />
+              <rect x="30" y="40" width="50" height="30" rx="4" fill="#fff" />
+              <text x="55" y="60" text-anchor="middle" fill="#4F46E5" font-size="18" font-family="monospace"
+                font-weight="bold">&lt;/&gt;</text>
+            </g>
+          </svg>
+        </div>
         <div class="card-content">
           <h3>Portfolio Website</h3>
           <p>A sleek personal site built with Tailwind CSS to showcase my work and skills. Mobile-friendly and
@@ -405,13 +415,27 @@
             onmouseout="this.style.background='linear-gradient(90deg,#4f46e5 0%,#818cf8 100%)';this.style.transform='scale(1)';">
             <span style="position:relative;z-index:2;">View Project</span>
             <i class="fas fa-arrow-right" style="margin-left:0.75rem;position:relative;z-index:2;"></i>
-            <span style="content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.08);z-index:1;pointer-events:none;"></span>
+            <span
+              style="content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.08);z-index:1;pointer-events:none;"></span>
           </a>
         </div>
       </div>
       <!-- Project Card -->
       <div class="project-card" style="background:linear-gradient(120deg,#f0fdfa 60%,#e0e7ff 100%);">
-        <img src="e-commerce.jpg" alt="Project 2">
+
+        <div style="width:100%;height:14rem;display:flex;align-items:center;justify-content:center;">
+          <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="110" height="110" rx="24" fill="#E0F2FE" />
+            <g>
+              <rect x="25" y="40" width="60" height="30" rx="8" fill="#10B981" />
+              <rect x="35" y="50" width="40" height="15" rx="4" fill="#fff" />
+              <circle cx="45" cy="70" r="5" fill="#3B82F6" />
+              <circle cx="65" cy="70" r="5" fill="#3B82F6" />
+              <text x="55" y="62" text-anchor="middle" fill="#10B981" font-size="16" font-family="monospace"
+                font-weight="bold">🛒</text>
+            </g>
+          </svg>
+        </div>
         <div class="card-content">
           <h3>E-Commerce Platform</h3>
           <p>Built with modern technologies to provide seamless shopping experience.</p>
@@ -421,7 +445,8 @@
             onmouseout="this.style.background='linear-gradient(90deg,#4f46e5 0%,#818cf8 100%)';this.style.transform='scale(1)';">
             <span style="position:relative;z-index:2;">View Project</span>
             <i class="fas fa-arrow-right" style="margin-left:0.75rem;position:relative;z-index:2;"></i>
-            <span style="content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.08);z-index:1;pointer-events:none;"></span>
+            <span
+              style="content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.08);z-index:1;pointer-events:none;"></span>
           </a>
         </div>
       </div>
@@ -446,27 +471,32 @@
       <!-- Get In Touch Form -->
       <div style="flex:1 1 340px;min-width:320px;max-width:500px;">
         <h2 class="section-title text-center">Get In Touch</h2>
-        <form style="background:linear-gradient(120deg,#fff 60%,#e0e7ff 100%);padding:2rem;border-radius:1rem;box-shadow:0 4px 24px rgba(67,56,202,0.08);">
+        <form
+          style="background:linear-gradient(120deg,#fff 60%,#e0e7ff 100%);padding:2rem;border-radius:1rem;box-shadow:0 4px 24px rgba(67,56,202,0.08);">
           <div style="margin-bottom:1.5rem;">
-            <label for="name" style="display:block;color:#374151;font-weight:600;margin-bottom:0.5rem;">Your Name</label>
+            <label for="name" style="display:block;color:#374151;font-weight:600;margin-bottom:0.5rem;">Your
+              Name</label>
             <input type="text" id="name" name="name"
               style="width:100%;padding:0.75rem 1rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:1rem;outline:none;transition:border-color 0.2s;"
               placeholder="Enter your name">
           </div>
           <div style="margin-bottom:1.5rem;">
-            <label for="email" style="display:block;color:#374151;font-weight:600;margin-bottom:0.5rem;">Email Address</label>
+            <label for="email" style="display:block;color:#374151;font-weight:600;margin-bottom:0.5rem;">Email
+              Address</label>
             <input type="email" id="email" name="email"
               style="width:100%;padding:0.75rem 1rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:1rem;outline:none;transition:border-color 0.2s;"
               placeholder="Enter your email">
           </div>
           <div style="margin-bottom:1.5rem;">
-            <label for="subject" style="display:block;color:#374151;font-weight:600;margin-bottom:0.5rem;">Subject</label>
+            <label for="subject"
+              style="display:block;color:#374151;font-weight:600;margin-bottom:0.5rem;">Subject</label>
             <input type="text" id="subject" name="subject"
               style="width:100%;padding:0.75rem 1rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:1rem;outline:none;transition:border-color 0.2s;"
               placeholder="What's this about?">
           </div>
           <div style="margin-bottom:1.5rem;">
-            <label for="message" style="display:block;color:#374151;font-weight:600;margin-bottom:0.5rem;">Message</label>
+            <label for="message"
+              style="display:block;color:#374151;font-weight:600;margin-bottom:0.5rem;">Message</label>
             <textarea id="message" name="message" rows="5"
               style="width:100%;padding:0.75rem 1rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:1rem;outline:none;transition:border-color 0.2s;"
               placeholder="Your message here..."></textarea>
