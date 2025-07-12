@@ -145,6 +145,50 @@
         }
       });
     });
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      const key = e.key;
+
+      // Map keyboard keys to calculator buttons
+      if (/\d/.test(key)) {
+        // Number keys
+        if (shouldReset) {
+          currentInput = '';
+          shouldReset = false;
+        }
+        currentInput += key;
+        display.textContent = currentInput;
+      } else if (key === '.') {
+        if (shouldReset) {
+          currentInput = '';
+          shouldReset = false;
+        }
+        currentInput += '.';
+        display.textContent = currentInput;
+      } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        if (shouldReset) {
+          shouldReset = false;
+        }
+        currentInput += key;
+        display.textContent = currentInput;
+      } else if (key === 'Enter' || key === '=') {
+        try {
+          currentInput = eval(currentInput).toString();
+          display.textContent = currentInput;
+          shouldReset = true;
+        } catch {
+          display.textContent = 'Error';
+          currentInput = '';
+        }
+      } else if (key === 'Backspace') {
+        currentInput = currentInput.slice(0, -1);
+        display.textContent = currentInput || '0';
+      } else if (key.toLowerCase() === 'c') {
+        currentInput = '';
+        display.textContent = '0';
+      }
+    });
   </script>
 </body>
 </html>
